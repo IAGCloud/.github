@@ -23,9 +23,9 @@ jobs:
     steps:
       - echo "Log level: ${{ github.event.inputs.jiraTicket }}"
       - echo "Tags: ${{ github.event.inputs.tags }}"
-      - echo "Organization Secret: ${{ secret.ORGSECRET }}"
-      - echo "Repository Secret: ${{ secret.WHATISIT }}"
-      - echo "Enviroment AWS Secret: ${{ secret.AWS_SECRET_ACCESS_KEY }}"
+#       - echo "Organization Secret: ${{ secret.ORGSECRET }}"
+#       - echo "Repository Secret: ${{ secret.WHATISIT }}"
+#       - echo "Enviroment AWS Secret: ${{ secret.AWS_SECRET_ACCESS_KEY }}"
 #       - uses: actions/checkout@v2
 #       - name: Use Node.js ${{ matrix.node-version }}
 #         uses: actions/setup-node@v1

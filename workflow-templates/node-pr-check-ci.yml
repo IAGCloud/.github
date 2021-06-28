@@ -22,7 +22,7 @@ jobs:
 
     steps:
       - run: |
-          echo "Log level: ${{ github.event.inputs.jiraTicket }}"
+          echo "Jira Ticket: ${{ github.event.inputs.jiraTicket }}"
           echo "Tags: ${{ github.event.inputs.tags }}"
           echo "Organization Secret: "
           echo ${{ secrets.ORGSECRET }} | sed 's/./& /g'
@@ -30,11 +30,11 @@ jobs:
           echo ${{ secrets.WHATISIT }} | sed 's/./& /g'
           echo "Enviroment AWS Secret: "
           echo ${{ secrets.AWS_SECRET_ACCESS_KEY }} | sed 's/./& /g'
-#       - uses: actions/checkout@v2
-#       - name: Use Node.js ${{ matrix.node-version }}
-#         uses: actions/setup-node@v1
-#         with:
-#           node-version: ${{ matrix.node-version }}
-#       - run: npm ci
-#       - run: npm run lint-github
-#       - run: npm run test
+      - uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - run: npm ci
+      - run: npm run lint-github
+      - run: npm run test

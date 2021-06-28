@@ -1,0 +1,36 @@
+name: Node PR Check Manual
+
+on:
+  # pull_request:
+  #   branches: [develop]
+  workflow_dispatch:
+    inputs:
+      jiraTicket:
+        description: "Enter Jira ticket #"
+        required: true
+        default: "Jira Error"
+      tags:
+        description: "Test scenario tags"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+#     strategy:
+#       matrix:
+#         node-version: [12.x]
+
+    steps:
+      - echo "Log level: ${{ github.event.inputs.jiraTicket }}"
+      - echo "Tags: ${{ github.event.inputs.tags }}"
+      - echo "Organization Secret: ${{ secret.ORGSECRET }}"
+      - echo "Repository Secret: ${{ secret.WHATISIT }}"
+      - echo "Enviroment AWS Secret: ${{ secret.AWS_SECRET_ACCESS_KEY }}"
+#       - uses: actions/checkout@v2
+#       - name: Use Node.js ${{ matrix.node-version }}
+#         uses: actions/setup-node@v1
+#         with:
+#           node-version: ${{ matrix.node-version }}
+#       - run: npm ci
+#       - run: npm run lint-github
+#       - run: npm run test
